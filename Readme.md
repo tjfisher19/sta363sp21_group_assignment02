@@ -56,21 +56,35 @@ Write R code to find the 15 most popular full albums (not singles) in terms of a
 
 ### Question 2
 
-The variables key, time_signature and mode are recorded as numeric variables but are categorical in context. Perform any necessary data processing to treat these variables as categorical and explore the relationship between the different category levels and popularity scores.
+The variables key, time_signature and mode are recorded as numeric variables but are categorical in context. Perform any necessary data processing to treat these variables as categorical and explore the relationship between the different category levels and popularity scores. Make note of any categories that do not seem predictive or may be combined for further analysis.
 
 ### Question 3
 
-In this question we will study the effects of track length on popularity. Categorize the duration of the Songs as such: tracks under 2 minutes and thirty seconds are considered short, while songs between 2:30 and 3 minutes and 30 seconds are "Radio Friendly". Songs from 3:30 to 4:30 in duration are "Longer Radio" songs, songs from 4 minutes and 30 seconds to 5:30 are "Long Songs" and songs over 5 minutes and 30 seconds are "Very Long Songs".  When a song by a specific artist is in the data multiple times, using the average duration and average popularity score of all versions of the song. What effect does song length appear to have on popularity? What does this imply about using song length as a predictor variable in a model? Hint: in this class we have discussed 'linear' models -- does the relationship follow that pattern?
+Study the effects of track length on popularity when track length is treated as a numeric variable, but also when it have been categorized. Categorize the duration of the Songs as such: tracks under 2 minutes and thirty seconds are considered short, while songs between 2:30 and 3 minutes and 30 seconds are "Radio Friendly". Songs from 3:30 to 4:30 in duration are "Longer Radio" songs, songs from 4 minutes and 30 seconds to 5:30 are "Long Songs" and songs over 5 minutes and 30 seconds are "Very Long Songs".  When a song by a specific artist is in the data multiple times, use the average duration and average popularity score of all replicates of the song. The resulting processed data should contain 41,888 tracks. What effect does song length appear to have on popularity? What does this imply about using song length as a predictor variable in a model? Hint: in this class we have discussed 'linear' models -- does the relationship follow that pattern?
 
 ### Question 4
 
-Explicit lyrics comparison.
+Some music contains explicit lyrics (I can't the $#!0!@% record companies produce such things) but often "clean" versions of the same song are produced for radio play. In this question want to explore the effect of explicit lyrics on popularity scores. But rather than comparing two populations (songs with explicit lyrics versus songs without), you need to compare songs with explicit lyrics to their "clean" versions. 
+
+For example, look at the first 40 rows of the `tracks_df` dataset, you should notice that the first 20 rows repeat! In fact, these tracks are from the posthumous album "Legends Never Die" by the hip-hop aritst Juice WRLD. The first 20 tracks contain explicit lyrics, while the next 20 are "clean" versions of the same song. We wish to compare the popularity of the "clean" version of the song compared to the one with explicit lyrics.
+
+Perform some data processing in R to find all songs by artists that appear at least twice in the dataset where you have two different versions of the song (one with explicit lyrics and one without). When multiple versions of the song appears with/without explicit lyrics, compute the mean popularity score of all instances. There are 4042 such songs in the data provide.  Perform an analysis comparing the effect of explicity lyrics on popularity scores when a "clean" version of the song is also available. 
 
 ### Question 5
 
-Processing for modeling
+Now we will process the data to use for building statistical models where we hope to predict song popularity!
+
+Process the data such that only tracks from studio albums (i.e., no "singles") released after 2016 with a complete record (i.e., if some variable is NA, you can remove the record) are retained. If done correctly, there will be 18714 tracks we will use in our analysis.
 
 ### Question 6
 
-Fit a model that explains popularity scores.
+Using the processed data from question 5, build an optimal model that best explains popularity scores.  That is, find a linear model that best explains popularity scores.  Which variables seem to be most influential"
+
+This question is very open-ended. Consider all the material in this assignment and covered in class. That is, use the insight gained in questions 2, 3 and 4 from this assignment. Consider the topics covered in Module 9 for model building. Condering using interaction terms such as in Module 7. When addressing which variables seem important consider topics from Module 8. Since this question entails statistical inference, make sure to consider model assumptions (including linearity!). 
+
+Other hints: use *tools* covered in class such as $R^2_a$, AIC, BIC, stepwise regression and best subsets regression to help *you choose* an optimal model. Consider combining categorical variables (if it makes sense) like we did in the In-class 20 assignment. You may consider any methods covered in this class and some from outside the class (if you can justify). You may also utilize contextual expertise if justified.
+
+**What to submit** -- obviously we do not want all the code and all the output for every model you consider. However, it is imperative that you step through your model building process. Provide descriptions of the models you considered and helpful tabular output on how you built this model. Make sure to address the question "which variables seem to be most influential?" with your chosen model -- remember to look beyong $p$-values and significance (feel free to read about partial R-squared). 
+
+
 
