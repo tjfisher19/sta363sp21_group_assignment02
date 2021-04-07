@@ -87,4 +87,9 @@ Other hints: use *tools* covered in class such as $R^2_a$, AIC, BIC, stepwise re
 **What to submit** -- obviously we do not want all the code and all the output for every model you consider. However, it is imperative that you step through your model building process. Provide descriptions of the models you considered and helpful tabular output on how you built this model. Make sure to address the question "which variables seem to be most influential?" with your chosen model -- remember to look beyong $p$-values and significance (feel free to read about partial R-squared). 
 
 
+## Submission
+
+Submit a well-written, error free, clean, knitted markdown file to canvas. This document is likely to be quite lengthly so please only include relevant output. Summarize results from question 6 in well-formatted tables. Separate each question with its own heading. If using results from previous questions (e.g., suppose you used the code created in part N in question N+1) make a comment in your code chunk so we know where it comes from.
+
+
 
