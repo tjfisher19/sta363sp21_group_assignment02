@@ -8,7 +8,7 @@ Our ultimate goal is to build statistical models to determine what makes a song 
 
 This group assignment is being segmented into two parts. 
 
-### Part 1 - Data Processing and EDA
+### Part 1 - Data Processing, EDA and Modeling to Explain
 
 In this part of the assignment you will work on some data handling and model building for explanation.
 
@@ -43,9 +43,13 @@ All data needed for part 1 of the assigment is available in the file `spr21_spot
    + valence - A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).
    + tempo - The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.
 
+
+
+
+
 ## Part 1 - Specifics
 
-Below we outline all the individual questions to answer. The first question is for fun and to get you moving. The next NUMBER questions involve some data processing and are design to provide some insight that will help you build a model. You are being tasked with making some decision and to use knowledge we have covered since the first day of class -- yes, material from In-class 01 appears on this assignment! Many of these questions will involve data processing (think `mutate`, `filter`, `group_by`, *joining*) and may also require for you to learn some new functions.
+Below we outline all the individual questions to answer. The first question is for fun and is design to get you moving (proverbially). The next 3 questions involve some data processing and EDA. They are design to provide *some* (but not all) insight that will help you build a model. You are being tasked with making some decisions and to use knowledge we have covered since the first day of class -- yes, material from In-class 01 appears on this assignment! Many of these questions will involve data processing (think `mutate`, `filter`, `group_by`, *joining*) and may also require for you to learn some new functions.
 
 Some other items to note: the same song may be in the data multiple times (each time with a unique track ID) because the song is released on multiple albums (original album, a *greatest hits* and a single). Likewise, some albums are in the data multiple times (multiple releases of an album, or a "clean" version versus one with explicit lyrics). These nuances will be addressed below.
 
@@ -56,11 +60,13 @@ Write R code to find the 15 most popular full albums (not singles) in terms of a
 
 ### Question 2
 
-The variables key, time_signature and mode are recorded as numeric variables but are categorical in context. Perform any necessary data processing to treat these variables as categorical and explore the relationship between the different category levels and popularity scores. Make note of any categories that do not seem predictive or may be combined for further analysis.
+The variables key, time_signature and mode are recorded as numeric variables but are categorical in context. Perform any necessary data processing to treat these variables as categorical and explore the relationship between the different category levels and popularity scores. This analysis should be performed on 72,143 observations. Make note of any categories that do not seem predictive or may be combined for further analysis.
 
 ### Question 3
 
-Study the effects of track length on popularity when track length is treated as a numeric variable, but also when it have been categorized. Categorize the duration of the Songs as such: tracks under 2 minutes and thirty seconds are considered short, while songs between 2:30 and 3 minutes and 30 seconds are "Radio Friendly". Songs from 3:30 to 4:30 in duration are "Longer Radio" songs, songs from 4 minutes and 30 seconds to 5:30 are "Long Songs" and songs over 5 minutes and 30 seconds are "Very Long Songs".  When a song by a specific artist is in the data multiple times, use the average duration and average popularity score of all replicates of the song. The resulting processed data should contain 41,888 tracks. What effect does song length appear to have on popularity? What does this imply about using song length as a predictor variable in a model? Hint: in this class we have discussed 'linear' models -- does the relationship follow that pattern?
+Study the effects of track length on popularity when track length is treated as a numeric variable, but also when it have been categorized. Categorize the duration of the Songs as such: tracks under 2 minutes and thirty seconds are considered short, while songs between 2:30 and 3 minutes and 30 seconds are "Radio Friendly". Songs from 3:30 to 4:30 in duration are "Longer Radio" songs, songs from 4 minutes and 30 seconds to 5:30 are "Long Songs" and songs over 5 minutes and 30 seconds are "Very Long Songs".  
+
+When a track by a specific artist is in the data multiple times, use the average duration and average popularity score of all replicates of the song. The resulting processed data should contain 42,369 tracks. What effect does song length appear to have on popularity? What does this imply about using song length as a predictor variable in a model? Hint: in this class we have discussed 'linear' models -- does the relationship follow that pattern?
 
 ### Question 4
 
@@ -68,13 +74,13 @@ Some music contains explicit lyrics (I can't the $#!0!@% record companies produc
 
 For example, look at the first 40 rows of the `tracks_df` dataset, you should notice that the first 20 rows repeat! In fact, these tracks are from the posthumous album "Legends Never Die" by the hip-hop aritst Juice WRLD. The first 20 tracks contain explicit lyrics, while the next 20 are "clean" versions of the same song. We wish to compare the popularity of the "clean" version of the song compared to the one with explicit lyrics.
 
-Perform some data processing in R to find all songs by artists that appear at least twice in the dataset where you have two different versions of the song (one with explicit lyrics and one without). When multiple versions of the song appears with/without explicit lyrics, compute the mean popularity score of all instances. There are 4042 such songs in the data provide.  Perform an analysis comparing the effect of explicity lyrics on popularity scores when a "clean" version of the song is also available. 
+Perform some data processing in R to find all songs by artists that appear at least twice in the dataset where you have two different versions of the song (one with explicit lyrics and one without). When multiple versions of the song appears with/without explicit lyrics, compute the mean popularity score of all instances. There are 3904 such songs in the data provide.  Perform an analysis comparing the effect of explicity lyrics on popularity scores when a "clean" version of the song is also available. 
 
 ### Question 5
 
 Now we will process the data to use for building statistical models where we hope to predict song popularity!
 
-Process the data such that only tracks from studio albums (i.e., no "singles") released after 2016 with a complete record (i.e., if some variable is NA, you can remove the record) are retained. If done correctly, there will be 18714 tracks we will use in our analysis.
+Process the data such that only tracks from studio albums (i.e., no "singles") released after 2016 with a complete record (i.e., if some variable is NA, you can remove the record) are retained. If done correctly, there will be 23051 tracks we will use in our analysis.
 
 ### Question 6
 
