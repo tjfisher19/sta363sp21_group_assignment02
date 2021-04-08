@@ -26,9 +26,9 @@ All data needed for part 1 of the assigment is available in the file `spr21_spot
 
 * `artist_df` -- A data.frame containing the names, and Spotify IDs for 389 artist.  These artist were selected based on having a popular song sometime over the past 5 years on the Pop Music, Rock Music or Country charts.
 * `album_artist_df` -- A data.frame mapping the artist (and their Spotify IDs) to all their recorded studio albums, including the album name, its Spotify ID, its type (album, single or compilation) and its release date (either a date or a year).
-* `tracks_df` -- A data.frame with 72156 rows recording a track (i.e., song) name, Spotify track ID, an indicator determining if the song includes *explicit lyrics* and the Spotify **popularity** score.
-* `album_track_df` -- A data.frame with 72156 rows but only two columns mapping all Spotify track IDs with their correspond Spotify album IDs.
-* `track_features` -- A data.frame with 72143 rows record track IDs along with a series of audio *features* as reported by Spotify. This includes
+* `tracks_df` -- A data.frame with 70036 rows recording a track (i.e., song) name, Spotify track ID, an indicator determining if the song includes *explicit lyrics* and the Spotify **popularity** score.
+* `album_track_df` -- A data.frame with 70036 rows but only two columns mapping all Spotify track IDs with their correspond Spotify album IDs.
+* `track_features` -- A data.frame with 70023 rows record track IDs along with a series of audio *features* as reported by Spotify. This includes
    + duration_ms - the duration of the track in milliseconds.
    + time_signature - An estimated overall time signature of a track. The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure). Note: common time is 4.
    + danceability - Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable
