@@ -25,7 +25,7 @@ This assignment is general structured that it builds on itself. That is, perform
 All data needed for part 1 of the assigment is available in the file `spr21_spotifyData.RData`. The `RData` contains five datasets and can be inported into R with the `load()` function. The datasets included are
 
 * `artist_df` -- A data.frame containing the names, and Spotify IDs for 389 artist.  These artist were selected based on having a popular song sometime over the past 5 years on the Pop Music, Rock Music or Country charts.
-* `album_artist_df` -- A data.frame mapping the artist (and their Spotify IDs) to all their recorded studio albums, including the album name, its Spotify ID, its type (album or single) and its release date (either a date or a year).
+* `album_artist_df` -- A data.frame mapping the artist (and their Spotify IDs) to all their recorded studio albums, including the album name, its Spotify ID, its type (album, single or compilation) and its release date (either a date or a year).
 * `tracks_df` -- A data.frame with 72156 rows recording a track (i.e., song) name, Spotify track ID, an indicator determining if the song includes *explicit lyrics* and the Spotify **popularity** score.
 * `album_track_df` -- A data.frame with 72156 rows but only two columns mapping all Spotify track IDs with their correspond Spotify album IDs.
 * `track_features` -- A data.frame with 72143 rows record track IDs along with a series of audio *features* as reported by Spotify. This includes
@@ -56,21 +56,21 @@ Some other items to note: the same song may be in the data multiple times (each 
 
 ### Question 1
 
-Write R code to find the 15 most popular full albums (not singles) in terms of average popularity score of all tracks on the album (hint: the 15th highest average popularity score is 74.7). How many of the artist and albums on the list do you know?  How many do you think your instructor knows?
+Write R code to find the 15 most popular full albums (not singles) in terms of average popularity score of all tracks on the album (hint: the 15th highest average popularity score is 74.7). Your output should include the artist name, album name, album release data and average popularity score. What do you notice about release dates of thes poppular albums? How many of the artist and albums on the list do you know?  How many do you think your instructor knows?
 
 ### Question 2
 
-The variables key, time_signature and mode are recorded as numeric variables but are categorical in context. Perform any necessary data processing to treat these variables as categorical and explore the relationship between the different category levels and popularity scores. This analysis should be performed on 72,143 observations. Make note of any categories that do not seem predictive or may be combined for further analysis.
+The variables key, time_signature and mode are recorded as numeric variables but are categorical in context. Perform any necessary data processing to treat these variables as categorical. Explore the relationship between the different category levels and popularity scores. This analysis should be performed on 70,023 observations. Make note of any categories that do not seem predictive or may be combined for further analysis.
 
 ### Question 3
 
 Study the effects of track length on popularity when track length is treated as a numeric variable, but also when it have been categorized. Categorize the duration of the Songs as such: tracks under 2 minutes and thirty seconds are considered short, while songs between 2:30 and 3 minutes and 30 seconds are "Radio Friendly". Songs from 3:30 to 4:30 in duration are "Longer Radio" songs, songs from 4 minutes and 30 seconds to 5:30 are "Long Songs" and songs over 5 minutes and 30 seconds are "Very Long Songs".  
 
-When a track by a specific artist is in the data multiple times, use the average duration and average popularity score of all replicates of the song. The resulting processed data should contain 42,369 tracks. What effect does song length appear to have on popularity? What does this imply about using song length as a predictor variable in a model? Hint: in this class we have discussed 'linear' models -- does the relationship follow that pattern?
+When a track by a specific artist is in the data multiple times, use the average duration and average popularity score of all replicates of the song. The resulting processed data should contain 40,827 tracks. What effect does song length appear to have on popularity? What does this imply about using song length as a predictor variable in a model? Hint: in this class we have discussed 'linear' models -- does the relationship follow that pattern?
 
 ### Question 4
 
-Some music contains explicit lyrics (I can't the $#!0!@% record companies produce such things) but often "clean" versions of the same song are produced for radio play. In this question want to explore the effect of explicit lyrics on popularity scores. But rather than comparing two populations (songs with explicit lyrics versus songs without), you need to compare songs with explicit lyrics to their "clean" versions. 
+Some music contains explicit lyrics (I can't believe the $#!0!@% record companies produce such things) but often "clean" versions of the same song are produced for radio play. In this question want to explore the effect of explicit lyrics on popularity scores. But rather than comparing two populations (songs with explicit lyrics versus songs without), you need to compare songs with explicit lyrics to their "clean" versions. 
 
 For example, look at the first 40 rows of the `tracks_df` dataset, you should notice that the first 20 rows repeat! In fact, these tracks are from the posthumous album "Legends Never Die" by the hip-hop aritst Juice WRLD. The first 20 tracks contain explicit lyrics, while the next 20 are "clean" versions of the same song. We wish to compare the popularity of the "clean" version of the song compared to the one with explicit lyrics.
 
@@ -80,7 +80,7 @@ Perform some data processing in R to find all songs by artists that appear at le
 
 Now we will process the data to use for building statistical models where we hope to predict song popularity!
 
-Process the data such that only tracks from studio albums (i.e., no "singles") released after 2016 with a complete record (i.e., if some variable is NA, you can remove the record) are retained. If done correctly, there will be 23051 tracks we will use in our analysis.
+Process the data such that only tracks with non-zero timing signatures from studio albums (i.e., no "singles") released after 2016 with a complete record (i.e., if some variable is NA, you can remove the record) are retained. If done correctly, there will be 23,029 tracks we will use in our analysis.
 
 ### Question 6
 
