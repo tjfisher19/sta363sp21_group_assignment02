@@ -1,6 +1,6 @@
 # What makes a song popular?
 
-In this group assignment we will be working with data obtained from Spotify through the Spotify developers API. 
+In this group assignment we will be working with data obtained from Spotify through the Spotify developers API.
 
 Our ultimate goal is to build statistical models to determine what makes a song popular, and to build models to predict popularity of songs.
 
@@ -18,7 +18,7 @@ In the second part of the assigment (will be made available next week), you will
 
 ### Working as a group
 
-This assignment is general structured that it builds on itself. That is, performing the data processing in Question 1 should help the data processing in later parts. Several of the earlier questions provide insight that should be helpful when building your regression model.  Therefore, it is HIGHLY RECOMMENDED that you DO NOT adapt the divide-and-conquer strategy many teams used on the first assignment (Alice does #1, Bob does #2, Carol does #3, and so on). Not only would this be an unfair distribution of workload, but it may delay completion of the assignment.
+This assignment is general structured that it builds on itself. That is, performing the data processing in Question 1 should help the data processing in later parts. Several of the earlier questions provide insight that should be helpful when building your regression model. Therefore, it is HIGHLY RECOMMENDED that you DO NOT adapt the divide-and-conquer strategy many teams used on the first assignment (Alice does #1, Bob does #2, Carol does #3, and so on). Not only would this be an unfair distribution of workload, but it may delay completion of the assignment.
 
 ## Data
 
@@ -49,14 +49,14 @@ All data needed for part 1 of the assigment is available in the file `spr21_spot
 
 ## Part 1 - Specifics
 
-Below we outline all the individual questions to answer. The first question is for fun and is design to get you moving (proverbially). The next 3 questions involve some data processing and EDA. They are design to provide *some* (but not all) insight that will help you build a model. You are being tasked with making some decisions and to use knowledge we have covered since the first day of class -- yes, material from In-class 01 appears on this assignment! Many of these questions will involve data processing (think `mutate`, `filter`, `group_by`, *joining*) and may also require for you to learn some new functions.
+Below we outline all the individual questions to answer. The first question is for fun and is design to get you moving (proverbially). The next 3 questions involve some data processing and EDA. They are design to provide some (but not all) insight that will help you build a model. You are being tasked with making some decisions and to use knowledge we have covered since the first day of class -- yes, material from In-class 01 appears on this assignment! Many of these questions will involve data processing (think mutate, filter, group_by, joining) and may also require for you to learn some new functions.
 
-Some other items to note: the same song may be in the data multiple times (each time with a unique track ID) because the song is released on multiple albums (original album, a *greatest hits* and a single). Likewise, some albums are in the data multiple times (multiple releases of an album, or a "clean" version versus one with explicit lyrics). These nuances will be addressed below.
+Some other items to note: the same song may be in the data multiple times (each time with a unique track ID) because the song is released on multiple albums (original album, a greatest hits and a single). Likewise, some albums are in the data multiple times (multiple releases of an album, or a "clean" version versus one with explicit lyrics). These nuances will be addressed below.
 
 
 ### Question 1
 
-Write R code to find the 15 most popular full albums (not singles) in terms of average popularity score of all tracks on the album (hint: the 15th highest average popularity score is 74.7). Your output should include the artist name, album name, album release data and average popularity score. What do you notice about release dates of thes poppular albums? How many of the artist and albums on the list do you know?  How many do you think your instructor knows?
+Write R code to find the 15 most popular full albums (not singles) in terms of average popularity score of all tracks on the album (hint: the 15th highest average popularity score is 74.7). Your output should include the artist name, album name, album release data and average popularity score. What do you notice about release dates of thes poppular albums? How many of the artist and albums on the list do you know? How many do you think your instructor knows?
 
 ### Question 2
 
@@ -64,17 +64,17 @@ The variables key, time_signature and mode are recorded as numeric variables but
 
 ### Question 3
 
-Study the effects of track length on popularity when track length is treated as a numeric variable, but also when it have been categorized. Categorize the duration of the Songs as such: tracks under 2 minutes and thirty seconds are considered short, while songs between 2:30 and 3 minutes and 30 seconds are "Radio Friendly". Songs from 3:30 to 4:30 in duration are "Longer Radio" songs, songs from 4 minutes and 30 seconds to 5:30 are "Long Songs" and songs over 5 minutes and 30 seconds are "Very Long Songs".  
+Study the effects of track length on popularity when track length is treated as a numeric variable, but also when it have been categorized. Categorize the duration of the Songs as such: tracks under 2 minutes and thirty seconds are considered short, while songs between 2:30 and 3 minutes and 30 seconds are "Radio Friendly". Songs from 3:30 to 4:30 in duration are "Longer Radio" songs, songs from 4 minutes and 30 seconds to 5:30 are "Long Songs" and songs over 5 minutes and 30 seconds are "Very Long Songs".
 
 When a track by a specific artist is in the data multiple times, use the average duration and average popularity score of all replicates of the song. The resulting processed data should contain 40,827 tracks. What effect does song length appear to have on popularity? What does this imply about using song length as a predictor variable in a model? Hint: in this class we have discussed 'linear' models -- does the relationship follow that pattern?
 
 ### Question 4
 
-Some music contains explicit lyrics (I can't believe the $#!0!@% record companies produce such things) but often "clean" versions of the same song are produced for radio play. In this question want to explore the effect of explicit lyrics on popularity scores. But rather than comparing two populations (songs with explicit lyrics versus songs without), you need to compare songs with explicit lyrics to their "clean" versions. 
+Some music contains explicit lyrics (I can't believe the $#!0!@% record companies produce such things) but often "clean" versions of the same song are produced for radio play. In this question want to explore the effect of explicit lyrics on popularity scores. But rather than comparing two populations (songs with explicit lyrics versus songs without), you need to compare songs with explicit lyrics to their "clean" versions.
 
-For example, look at the first 40 rows of the `tracks_df` dataset, you should notice that the first 20 rows repeat! In fact, these tracks are from the posthumous album "Legends Never Die" by the hip-hop aritst Juice WRLD. The first 20 tracks contain explicit lyrics, while the next 20 are "clean" versions of the same song. We wish to compare the popularity of the "clean" version of the song compared to the one with explicit lyrics.
+For example, look at the first 40 rows of the tracks_df dataset, you should notice that the first 20 rows repeat! In fact, these tracks are from the posthumous album "Legends Never Die" by the hip-hop aritst Juice WRLD. The first 20 tracks contain explicit lyrics, while the next 20 are "clean" versions of the same song. We wish to compare the popularity of the "clean" version of the song compared to the one with explicit lyrics.
 
-Perform some data processing in R to find all songs by artists that appear at least twice in the dataset where you have two different versions of the song (one with explicit lyrics and one without). When multiple versions of the song appears with/without explicit lyrics, compute the mean popularity score of all instances. There are 3904 such songs in the data provide.  Perform an analysis comparing the effect of explicity lyrics on popularity scores when a "clean" version of the song is also available. 
+Perform some data processing in R to find all songs by artists that appear at least twice in the dataset where you have two different versions of the song (one with explicit lyrics and one without). When multiple versions of the song appears with/without explicit lyrics, compute the mean popularity score of all instances. There are 3904 such songs in the data provide. Perform an analysis comparing the effect of explicity lyrics on popularity scores when a "clean" version of the song is also available.
 
 ### Question 5
 
@@ -84,14 +84,13 @@ Process the data such that only tracks with non-zero time signatures from studio
 
 ### Question 6
 
-Using the processed data from question 5, build an optimal model that best explains popularity scores.  That is, find a linear model that best explains popularity scores.  Which variables seem to be most influential?
+Using the processed data from question 5, build an optimal model that best explains popularity scores. That is, find a linear model that best explains popularity scores. Which variables seem to be most influential?
 
-This question is very open-ended. Consider all the material in this assignment and covered in class. That is, use the insight gained in questions 2, 3 and 4 from this assignment. Consider the topics covered in Module 9 for model building. Condering using categorical variables and interaction such as in Module 7. When addressing which variables seem important consider topics from Module 8. Since this question entails statistical inference, make sure to consider model assumptions (including linearity!). 
+This question is very open-ended. Consider all the material in this assignment and covered in class. That is, use the insight gained in questions 2, 3 and 4 from this assignment. Consider the topics covered in Module 9 for model building. Condering using categorical variables and interaction such as in Module 7. When addressing which variables seem important consider topics from Module 8. Since this question entails statistical inference, make sure to consider model assumptions (including linearity!).
 
-Other hints: use *tools* covered in class such as $R^2_a$, AIC, BIC, stepwise regression and best subsets regression to help *you choose* an optimal model. Consider combining categorical variables (if it makes sense; e.g., time signature) like we did in the In-class 20 assignment. You may consider any methods covered in this class and some from outside the class (if you can justify). You may also utilize contextual expertise if justified.
+Other hints: use tools covered in class such as $R^2_a$, AIC, BIC, stepwise regression and best subsets regression to help you choose an optimal model. Consider combining categorical variables (if it makes sense; e.g., time signature) like we did in the In-class 20 assignment. You may consider any methods covered in this class and some from outside the class (if you can justify). You may also utilize contextual expertise if justified.
 
-**What to submit** -- obviously we do not want all the code and all the output for every model you consider. However, it is imperative that you step through your model building process. Provide descriptions of the models you considered and helpful tabular output on how you built this model. Make sure to address the question "which variables seem to be most influential?" with your chosen model -- remember to look beyong $p$-values and significance (feel free to read about partial R-squared). 
-
+**What to submit** -- obviously we do not want all the code and all the output for every model you consider. However, it is imperative that you step through your model building process. Provide descriptions of the models you considered and helpful tabular output on how you built this model. Make sure to address the question "which variables seem to be most influential?" with your chosen model -- remember to look beyong $p$-values and significance (feel free to read about partial R-squared).
 
 ## Submission
 
