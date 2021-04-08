@@ -60,7 +60,7 @@ Write R code to find the 15 most popular full albums (not singles) in terms of a
 
 ### Question 2
 
-The variables key, time_signature and mode are recorded as numeric variables but are categorical in context. Perform any necessary data processing to treat these variables as categorical. Explore the relationship between the different category levels and popularity scores. This analysis should be performed on 70,023 observations. Make note of any categories that do not seem predictive or may be combined for further analysis.
+The variables key, time_signature and mode are recorded as numeric variables but are categorical in context. Perform any necessary data processing to treat these variables as categorical. Study the frequency of the different categories and explore the relationship between the different category levels and popularity scores. This analysis should be performed on 70,023 observations. Make note of any categories that do not seem predictive or may be combined for further analysis.
 
 ### Question 3
 
@@ -80,15 +80,15 @@ Perform some data processing in R to find all songs by artists that appear at le
 
 Now we will process the data to use for building statistical models where we hope to predict song popularity!
 
-Process the data such that only tracks with non-zero timing signatures from studio albums (i.e., no "singles") released after 2016 with a complete record (i.e., if some variable is NA, you can remove the record) are retained. If done correctly, there will be 23,029 tracks we will use in our analysis.
+Process the data such that only tracks with non-zero time signatures from studio albums (i.e., no "singles") released after 2016 with a complete record (i.e., if some variable is NA, you can remove the record) are retained. If done correctly, there will be 23,029 tracks we will use in our analysis.
 
 ### Question 6
 
-Using the processed data from question 5, build an optimal model that best explains popularity scores.  That is, find a linear model that best explains popularity scores.  Which variables seem to be most influential"
+Using the processed data from question 5, build an optimal model that best explains popularity scores.  That is, find a linear model that best explains popularity scores.  Which variables seem to be most influential?
 
-This question is very open-ended. Consider all the material in this assignment and covered in class. That is, use the insight gained in questions 2, 3 and 4 from this assignment. Consider the topics covered in Module 9 for model building. Condering using interaction terms such as in Module 7. When addressing which variables seem important consider topics from Module 8. Since this question entails statistical inference, make sure to consider model assumptions (including linearity!). 
+This question is very open-ended. Consider all the material in this assignment and covered in class. That is, use the insight gained in questions 2, 3 and 4 from this assignment. Consider the topics covered in Module 9 for model building. Condering using categorical variables and interaction such as in Module 7. When addressing which variables seem important consider topics from Module 8. Since this question entails statistical inference, make sure to consider model assumptions (including linearity!). 
 
-Other hints: use *tools* covered in class such as $R^2_a$, AIC, BIC, stepwise regression and best subsets regression to help *you choose* an optimal model. Consider combining categorical variables (if it makes sense) like we did in the In-class 20 assignment. You may consider any methods covered in this class and some from outside the class (if you can justify). You may also utilize contextual expertise if justified.
+Other hints: use *tools* covered in class such as $R^2_a$, AIC, BIC, stepwise regression and best subsets regression to help *you choose* an optimal model. Consider combining categorical variables (if it makes sense; e.g., time signature) like we did in the In-class 20 assignment. You may consider any methods covered in this class and some from outside the class (if you can justify). You may also utilize contextual expertise if justified.
 
 **What to submit** -- obviously we do not want all the code and all the output for every model you consider. However, it is imperative that you step through your model building process. Provide descriptions of the models you considered and helpful tabular output on how you built this model. Make sure to address the question "which variables seem to be most influential?" with your chosen model -- remember to look beyong $p$-values and significance (feel free to read about partial R-squared). 
 
